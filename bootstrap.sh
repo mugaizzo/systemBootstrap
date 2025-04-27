@@ -12,7 +12,9 @@ fi
 echo "[+] Cloning your private repo..."
 git clone https://"$GITHUB_TOKEN"@github.com/mugaizzo/systemAnsible.git ~/systemAnsible
 
+echo "[+] Changing directory"
 cd ~/systemAnsible
+
 echo "[+] Running Ansible playbook locally..."
 ansible-playbook -i inventory/hosts playbook.yml
 
