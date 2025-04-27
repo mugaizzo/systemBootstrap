@@ -2,7 +2,7 @@
 set -e
 
 echo "[+] Installing Ansible and Git..."
-sudo pacman -Sy --noconfirm ansible git base-devel
+#sudo pacman -Sy --noconfirm ansible git base-devel
 
 if [ -z "$GITHUB_TOKEN" ]; then
     echo "[!] GITHUB_TOKEN is not set. Please export it first."
