@@ -2,11 +2,13 @@
 set -e
 
 echo "[+] Installing Ansible and Git..."
-#sudo pacman -Sy --noconfirm ansible git base-devel
+if ! [ -x "$(command -v ansible)" ] && ! [ -x "$(command -v git)" ]; then
+  sudo pacman -Sy --noconfirm ansible git base-devel
+fi
 
-if [ -z "$GITHUB_TOKEN" ]; then
-    echo "[!] GITHUB_TOKEN is not set. Please export it first."
-    exit 1
+if [ "$GITHUB_TOKEN" = "" ]; then
+  echo "[!] GITHUB_TOKEN is not set. Please export it first."
+  exit 1
 fi
 
 echo "[+] Cloning your private repo..."
